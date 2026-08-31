@@ -256,7 +256,7 @@ def main():
 
     banner("PHASE 3  recovery")
     print("  Attacks done. Resuming legitimate traffic; the pipeline keeps serving.")
-    spawn(SIM_CMD)
+    spawn(sim_cmd())
 
     print("\n  Demo complete. Dashboard stays live. Press Ctrl+C to stop everything.")
     try:
