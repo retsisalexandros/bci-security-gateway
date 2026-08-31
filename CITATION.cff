@@ -16,7 +16,7 @@ authors:
     affiliation: "University College Dublin"
 version: 1.0.0
 date-released: 2026-08-31
-doi: 10.5281/zenodo.22211700
+doi: 10.5281/zenodo.22208030
 repository-code: "https://github.com/retsisalexandros/bci-security-gateway"
 keywords:
   - brain-computer interface
