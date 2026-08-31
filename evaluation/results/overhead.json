@@ -1,0 +1,28 @@
+{
+  "iterations": 50000,
+  "inter_packet_budget_ms": 4.0,
+  "baseline_passthrough_ms": {
+    "mean_ms": 0.005086,
+    "p50_ms": 0.0047,
+    "p95_ms": 0.0055,
+    "p99_ms": 0.0145,
+    "max_ms": 0.1582
+  },
+  "secured_gateway_ms": {
+    "mean_ms": 0.01234,
+    "p50_ms": 0.011,
+    "p95_ms": 0.0156,
+    "p99_ms": 0.0437,
+    "max_ms": 0.4778
+  },
+  "hub_verify_ms": {
+    "mean_ms": 0.012303,
+    "p50_ms": 0.0108,
+    "p95_ms": 0.0174,
+    "p99_ms": 0.0453,
+    "max_ms": 0.2442
+  },
+  "gateway_added_overhead_mean_ms": 0.007254,
+  "gateway_p99_within_budget": true,
+  "max_sustainable_pps_gateway": 81037
+}

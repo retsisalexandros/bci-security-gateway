@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "BCI Security Gateway"
+abstract: >-
+  Prototype inline security gateway for a brain-computer interface streaming
+  pipeline. It enforces mutual TLS authentication with a device allowlist,
+  HMAC-SHA256 integrity protection, timestamp and sequence anti-replay, input
+  validation, and behavioural monitoring through per-device rate limiting and
+  statistical channel anomaly detection. Evaluated against six attack scenarios
+  across thirteen variants, measured on both an undefended baseline pipeline and
+  the gateway-protected pipeline. MSc Cybersecurity thesis artifact.
+authors:
+  - family-names: Retsis
+    given-names: Alexander
+    affiliation: "University College Dublin"
+version: 1.0.0
+date-released: 2026-08-31
+repository-code: "https://github.com/retsisalexandros/bci-security-gateway"
+keywords:
+  - brain-computer interface
+  - BCI
+  - security gateway
+  - mutual TLS
+  - HMAC
+  - anti-replay
+  - anomaly detection
+  - neural data

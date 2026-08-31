@@ -1,0 +1,9 @@
+2026-07-08 18:04:00,370 [__main__] INFO: Starting hub in secured mode...
+2026-07-08 18:04:00,405 [websockets.server] INFO: server listening on 0.0.0.0:8002
+2026-07-08 18:04:00,405 [__main__] INFO: Hub dashboard server listening on port 8002.
+2026-07-08 18:04:00,405 [__main__] INFO: Hub upstream client targeting 127.0.0.1:9001 (mode=secured).
+2026-07-08 18:04:00,405 [__main__] INFO: Connecting to gateway upstream at ws://127.0.0.1:9001 ...
+2026-07-08 18:04:00,409 [__main__] INFO: Connected to gateway upstream.
+2026-07-08 18:04:00,842 [websockets.server] INFO: connection rejected (400 Bad Request)
+2026-07-08 18:04:00,842 [websockets.server] INFO: connection closed
+2026-07-08 18:04:37,983 [__main__] WARNING: Upstream connection lost (no close frame received or sent), retrying in 2s.

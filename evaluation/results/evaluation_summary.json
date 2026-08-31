@@ -1,0 +1,116 @@
+{
+  "attacks": {
+    "ATK1_spoof": {
+      "blocked_by": "F1 (mTLS certificate-chain and validity verification)",
+      "baseline": "skipped (baseline mode has no mTLS layer)",
+      "secured_attack_blocked": true,
+      "secured_variants": {
+        "untrusted_ca": true,
+        "expired_cert": true,
+        "no_client_cert": true
+      }
+    },
+    "ATK2_replay": {
+      "blocked_by": "F3 (timestamp window + strictly-increasing sequence numbers)",
+      "baseline_attack_blocked": false,
+      "baseline_variants": {
+        "delayed_replay": false
+      },
+      "secured_attack_blocked": true,
+      "secured_variants": {
+        "delayed_replay": true,
+        "in_session_replay": true
+      }
+    },
+    "ATK3_tamper": {
+      "blocked_by": "F2 (HMAC-SHA256 verification at the hub)",
+      "baseline_attack_blocked": false,
+      "baseline_variants": {
+        "forged_injection": false
+      },
+      "secured_attack_blocked": true,
+      "secured_variants": {
+        "full_mutation": true,
+        "partial_mutation": true
+      }
+    },
+    "ATK4_unauth": {
+      "blocked_by": "F1 (allowlist check on certificate CN)",
+      "baseline": "skipped (baseline mode has no allowlist)",
+      "secured_attack_blocked": true,
+      "secured_variants": {
+        "non_allowlisted": true,
+        "case_mismatch": true,
+        "cn_substring": true
+      }
+    },
+    "ATK5_fuzz": {
+      "blocked_by": "input validation (packet-shape check before F2/F3)",
+      "baseline": "skipped (baseline mode has no input-validation layer)",
+      "secured_attack_blocked": true,
+      "secured_variants": {}
+    },
+    "ATK6_abnormal": {
+      "blocked_by": "F4 (packet-rate limiting + behavioural anomaly detection)",
+      "baseline_attack_blocked": false,
+      "baseline_variants": {},
+      "secured_attack_blocked": true,
+      "secured_variants": {
+        "rate_flood": true,
+        "abnormal_channels": true
+      }
+    }
+  },
+  "secured_attacks_blocked": "6/6",
+  "gateway_log_summary": {
+    "auth_success": 9,
+    "auth_failure": 300,
+    "packet_forwarded": 4259,
+    "replay_rejected": 200,
+    "packet_rejected": 14,
+    "rate_limited": 1900,
+    "anomaly_detected": 100,
+    "total_events": 6782
+  },
+  "normal_operation": {
+    "mode": "secured",
+    "window_ms": [
+      1783523041852,
+      1783523051871
+    ],
+    "legitimate_packets_forwarded": 2404,
+    "false_rejections": 0,
+    "false_rate_limited": 0,
+    "false_anomaly_alerts": 0,
+    "auth_failures": 0,
+    "false_positive_rate": 0.0
+  },
+  "overhead": {
+    "iterations": 50000,
+    "inter_packet_budget_ms": 4.0,
+    "baseline_passthrough_ms": {
+      "mean_ms": 0.005086,
+      "p50_ms": 0.0047,
+      "p95_ms": 0.0055,
+      "p99_ms": 0.0145,
+      "max_ms": 0.1582
+    },
+    "secured_gateway_ms": {
+      "mean_ms": 0.01234,
+      "p50_ms": 0.011,
+      "p95_ms": 0.0156,
+      "p99_ms": 0.0437,
+      "max_ms": 0.4778
+    },
+    "hub_verify_ms": {
+      "mean_ms": 0.012303,
+      "p50_ms": 0.0108,
+      "p95_ms": 0.0174,
+      "p99_ms": 0.0453,
+      "max_ms": 0.2442
+    },
+    "gateway_added_overhead_mean_ms": 0.007254,
+    "gateway_p99_within_budget": true,
+    "max_sustainable_pps_gateway": 81037
+  }
+}

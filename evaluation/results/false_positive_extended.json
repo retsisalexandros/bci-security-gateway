@@ -1,0 +1,53 @@
+{
+  "config": {
+    "learn_samples": 300,
+    "z_threshold": 6.0,
+    "channel_bound": 300.0,
+    "max_pps": 400
+  },
+  "note_rate_limiter": "At 250 Hz the device is well below the 400 pps cap, so no legitimate packet is rate-limited by construction; this study stresses the anomaly detector.",
+  "runs": [
+    {
+      "source": "synthetic_seed_1",
+      "learned_std": 33.015,
+      "test_packets": 2500,
+      "false_anomaly_alerts": 0,
+      "fp_rate": 0.0
+    },
+    {
+      "source": "synthetic_seed_2",
+      "learned_std": 33.854,
+      "test_packets": 2500,
+      "false_anomaly_alerts": 0,
+      "fp_rate": 0.0
+    },
+    {
+      "source": "synthetic_seed_3",
+      "learned_std": 35.799,
+      "test_packets": 2500,
+      "false_anomaly_alerts": 0,
+      "fp_rate": 0.0
+    },
+    {
+      "source": "synthetic_seed_4",
+      "learned_std": 34.655,
+      "test_packets": 2500,
+      "false_anomaly_alerts": 0,
+      "fp_rate": 0.0
+    },
+    {
+      "source": "synthetic_seed_5",
+      "learned_std": 34.312,
+      "test_packets": 2500,
+      "false_anomaly_alerts": 0,
+      "fp_rate": 0.0
+    },
+    {
+      "source": "recorded_EEG_UCI_EyeState",
+      "learned_std": 21.266,
+      "test_packets": 2500,
+      "false_anomaly_alerts": 0,
+      "fp_rate": 0.0
+    }
+  ]
+}

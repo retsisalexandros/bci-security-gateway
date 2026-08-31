@@ -1,0 +1,63 @@
+{
+  "ATK1_spoof": {
+    "skipped": true,
+    "reason": "baseline mode has no mTLS layer"
+  },
+  "ATK2_replay": {
+    "attack": "ATK2_replay",
+    "attacker_model": "compromised device: adversary holds device-001's extracted cert and private key",
+    "blocked_by": "F3 (timestamp window + strictly-increasing sequence numbers)",
+    "params": {
+      "capture_count": 100,
+      "delay_seconds": 8.0,
+      "device_id": "bci-device-001"
+    },
+    "variants": {
+      "delayed_replay": {
+        "description": "replay verbatim after the time window expires",
+        "captured": 100,
+        "replayed_sent": 100,
+        "defender": {
+          "skipped": true,
+          "note": "baseline pipeline has no anti-replay"
+        },
+        "blocked": false
+      }
+    },
+    "defender_view": {
+      "log_path": null,
+      "note": "baseline pipeline has no gateway and no anti-replay"
+    },
+    "success_criterion_met": false
+  },
+  "ATK3_tamper": {
+    "attack": "ATK3_tamper",
+    "attacker_model": "forged-packet injection at the undefended hub (baseline)",
+    "blocked_by": "F2 (HMAC verification at the hub)",
+    "params": {
+      "num_packets": 20
+    },
+    "variants": {
+      "forged_injection": {
+        "variant": "forged_injection",
+        "attacker_view": {
+          "packets_sent": 20
+        },
+        "defender_view": {
+          "skipped": true,
+          "note": "baseline pipeline has no HMAC verification"
+        },
+        "blocked": false
+      }
+    },
+    "success_criterion_met": false
+  },
+  "ATK4_unauth": {
+    "skipped": true,
+    "reason": "baseline mode has no allowlist"
+  },
+  "ATK5_fuzz": {
+    "skipped": true,
+    "reason": "baseline mode has no input-validation layer"
+  }
+}

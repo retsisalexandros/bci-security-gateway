@@ -1,0 +1,20 @@
+2026-05-20 08:39:44,822 [__main__] INFO: Starting hub in baseline mode...
+2026-05-20 08:39:44,853 [websockets.server] INFO: server listening on 0.0.0.0:8002
+2026-05-20 08:39:44,853 [__main__] INFO: Hub dashboard server listening on port 8002.
+2026-05-20 08:39:44,853 [websockets.server] INFO: server listening on 0.0.0.0:8001
+2026-05-20 08:39:44,853 [__main__] INFO: Hub upstream server listening on port 8001 (mode=baseline).
+2026-05-20 08:39:45,318 [websockets.server] INFO: connection rejected (400 Bad Request)
+2026-05-20 08:39:45,318 [websockets.server] INFO: connection closed
+2026-05-20 08:39:46,566 [websockets.server] INFO: connection open
+2026-05-20 08:39:46,566 [__main__] INFO: Upstream connection established (mode=baseline).
+2026-05-20 08:39:56,346 [__main__] INFO: Upstream connection closed.
+2026-05-20 08:39:56,346 [websockets.server] INFO: connection closed
+2026-05-20 08:39:57,037 [websockets.server] INFO: connection open
+2026-05-20 08:39:57,037 [__main__] INFO: Upstream connection established (mode=baseline).
+2026-05-20 08:39:57,042 [websockets.server] INFO: connection closed
+2026-05-20 08:40:05,059 [websockets.server] INFO: connection open
+2026-05-20 08:40:05,059 [__main__] INFO: Upstream connection established (mode=baseline).
+2026-05-20 08:40:05,063 [websockets.server] INFO: connection closed
+2026-05-20 08:40:05,064 [websockets.server] INFO: connection open
+2026-05-20 08:40:05,064 [__main__] INFO: Upstream connection established (mode=baseline).
+2026-05-20 08:40:06,300 [websockets.server] INFO: connection closed

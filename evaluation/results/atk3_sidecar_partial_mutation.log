@@ -1,0 +1,55 @@
+2026-07-08 18:04:27,650 [__main__] INFO: Starting hub in secured mode...
+2026-07-08 18:04:27,684 [websockets.server] INFO: server listening on 0.0.0.0:8003
+2026-07-08 18:04:27,684 [__main__] INFO: Hub dashboard server listening on port 8003.
+2026-07-08 18:04:27,684 [__main__] INFO: Hub upstream client targeting 127.0.0.1:9101 (mode=secured).
+2026-07-08 18:04:27,684 [__main__] INFO: Connecting to gateway upstream at ws://127.0.0.1:9101 ...
+2026-07-08 18:04:27,686 [__main__] INFO: Connected to gateway upstream.
+2026-07-08 18:04:28,139 [websockets.server] INFO: connection rejected (400 Bad Request)
+2026-07-08 18:04:28,140 [websockets.server] INFO: connection closed
+2026-07-08 18:04:29,665 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 17 — dropping packet.
+2026-07-08 18:04:29,666 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 18 — dropping packet.
+2026-07-08 18:04:29,669 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 24 — dropping packet.
+2026-07-08 18:04:29,671 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 28 — dropping packet.
+2026-07-08 18:04:29,672 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 32 — dropping packet.
+2026-07-08 18:04:29,673 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 36 — dropping packet.
+2026-07-08 18:04:29,673 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 38 — dropping packet.
+2026-07-08 18:04:29,678 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 48 — dropping packet.
+2026-07-08 18:04:29,679 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 52 — dropping packet.
+2026-07-08 18:04:29,682 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 57 — dropping packet.
+2026-07-08 18:04:29,685 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 63 — dropping packet.
+2026-07-08 18:04:29,690 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 75 — dropping packet.
+2026-07-08 18:04:29,697 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 89 — dropping packet.
+2026-07-08 18:04:29,699 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 94 — dropping packet.
+2026-07-08 18:04:29,700 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 97 — dropping packet.
+2026-07-08 18:04:29,703 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 107 — dropping packet.
+2026-07-08 18:04:29,704 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 110 — dropping packet.
+2026-07-08 18:04:29,705 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 114 — dropping packet.
+2026-07-08 18:04:29,707 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 123 — dropping packet.
+2026-07-08 18:04:29,710 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 131 — dropping packet.
+2026-07-08 18:04:29,713 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 136 — dropping packet.
+2026-07-08 18:04:29,716 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 142 — dropping packet.
+2026-07-08 18:04:29,725 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 165 — dropping packet.
+2026-07-08 18:04:29,729 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 184 — dropping packet.
+2026-07-08 18:04:29,730 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 188 — dropping packet.
+2026-07-08 18:04:29,739 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 210 — dropping packet.
+2026-07-08 18:04:29,743 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 221 — dropping packet.
+2026-07-08 18:04:29,743 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 222 — dropping packet.
+2026-07-08 18:04:29,744 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 226 — dropping packet.
+2026-07-08 18:04:29,753 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 262 — dropping packet.
+2026-07-08 18:04:29,756 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 267 — dropping packet.
+2026-07-08 18:04:29,757 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 271 — dropping packet.
+2026-07-08 18:04:29,758 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 273 — dropping packet.
+2026-07-08 18:04:29,759 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 279 — dropping packet.
+2026-07-08 18:04:29,761 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 285 — dropping packet.
+2026-07-08 18:04:29,761 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 286 — dropping packet.
+2026-07-08 18:04:29,762 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 289 — dropping packet.
+2026-07-08 18:04:29,769 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 313 — dropping packet.
+2026-07-08 18:04:29,769 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 316 — dropping packet.
+2026-07-08 18:04:29,770 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 320 — dropping packet.
+2026-07-08 18:04:29,771 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 322 — dropping packet.
+2026-07-08 18:04:29,775 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 344 — dropping packet.
+2026-07-08 18:04:29,781 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 369 — dropping packet.
+2026-07-08 18:04:29,783 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 376 — dropping packet.
+2026-07-08 18:04:29,786 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 385 — dropping packet.
+2026-07-08 18:04:29,790 [hub.verifier] WARNING: HMAC mismatch for device bci-device-001 seq 397 — dropping packet.
+2026-07-08 18:04:32,311 [__main__] WARNING: Upstream connection lost (no close frame received or sent), retrying in 2s.

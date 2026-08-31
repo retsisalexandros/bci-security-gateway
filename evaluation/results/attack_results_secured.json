@@ -1,0 +1,328 @@
+{
+  "ATK1_spoof": {
+    "attack": "ATK1_spoof",
+    "attacker_model": "rogue device presenting a certificate the gateway must reject at the mTLS layer",
+    "blocked_by": "F1 (mTLS certificate-chain and validity verification)",
+    "params": {
+      "attempts": 100
+    },
+    "variants": {
+      "untrusted_ca": {
+        "description": "client cert signed by an untrusted (attacker) CA",
+        "attempts": 100,
+        "connected": 0,
+        "rejected": 100,
+        "refused": 0,
+        "example_rejection": "InvalidMessage: did not receive a valid HTTP response",
+        "connection_success": {
+          "successes": 0,
+          "attempts": 100,
+          "rate": 0.0,
+          "ci95_lower": 0.0,
+          "ci95_upper": 0.037
+        },
+        "blocked": true
+      },
+      "expired_cert": {
+        "description": "client cert chains to the testbed CA but has expired",
+        "attempts": 100,
+        "connected": 0,
+        "rejected": 100,
+        "refused": 0,
+        "example_rejection": "InvalidMessage: did not receive a valid HTTP response",
+        "connection_success": {
+          "successes": 0,
+          "attempts": 100,
+          "rate": 0.0,
+          "ci95_lower": 0.0,
+          "ci95_upper": 0.037
+        },
+        "blocked": true
+      },
+      "no_client_cert": {
+        "description": "no client certificate presented",
+        "attempts": 100,
+        "connected": 0,
+        "rejected": 100,
+        "refused": 0,
+        "example_rejection": "InvalidMessage: did not receive a valid HTTP response",
+        "connection_success": {
+          "successes": 0,
+          "attempts": 100,
+          "rate": 0.0,
+          "ci95_lower": 0.0,
+          "ci95_upper": 0.037
+        },
+        "blocked": true
+      }
+    },
+    "defender_view": {
+      "log_path": "gateway_events.log",
+      "note": "TLS handshakes fail below the gateway's application logger; rejection is observed attacker-side. With no legitimate device connected during the attack window, the gateway should emit zero auth events.",
+      "auth_success_in_window": 0,
+      "auth_failure_in_window": 0,
+      "window_ms": [
+        1783523052565,
+        1783523053418
+      ]
+    },
+    "success_criterion_met": true
+  },
+  "ATK2_replay": {
+    "attack": "ATK2_replay",
+    "attacker_model": "compromised device: adversary holds device-001's extracted cert and private key",
+    "blocked_by": "F3 (timestamp window + strictly-increasing sequence numbers)",
+    "params": {
+      "capture_count": 100,
+      "delay_seconds": 8.0,
+      "device_id": "bci-device-001"
+    },
+    "variants": {
+      "delayed_replay": {
+        "description": "replay verbatim after the time window expires",
+        "captured": 100,
+        "replayed_sent": 100,
+        "defender": {
+          "replay_rejected_stale_timestamp": 100,
+          "replay_rejected_duplicate_seq": 0,
+          "packet_forwarded_during_replay": 0,
+          "window_ms": [
+            1783523061444,
+            1783523061453
+          ]
+        },
+        "blocked": true
+      },
+      "in_session_replay": {
+        "description": "resend the same packets within the time window on one connection",
+        "sent_first_pass": 100,
+        "resent": 100,
+        "defender": {
+          "replay_rejected_duplicate_seq": 100,
+          "packet_forwarded": 100,
+          "window_ms": [
+            1783523061470,
+            1783523061494
+          ]
+        },
+        "blocked": true
+      }
+    },
+    "defender_view": {
+      "log_path": "gateway_events.log",
+      "note": "delayed replays are caught by the stale-timestamp branch, in-session resends by the duplicate-sequence branch"
+    },
+    "success_criterion_met": true
+  },
+  "ATK3_tamper": {
+    "attack": "ATK3_tamper",
+    "attacker_model": "on-path MitM relay between the gateway and the hub",
+    "blocked_by": "F2 (HMAC-SHA256 verification at the hub)",
+    "params": {
+      "feed_packets": 800
+    },
+    "variants": {
+      "full_mutation": {
+        "variant": "full_mutation",
+        "mutation_rate": 1.0,
+        "feed_packets_sent": 800,
+        "attacker_view": {
+          "forwarded_total": 1203,
+          "data_packets_seen": 400,
+          "mutated": 400,
+          "untouched": 0,
+          "relay_errors": 0
+        },
+        "defender_view": {
+          "sidecar_hub_log": "evaluation/results/atk3_sidecar_full_mutation.log",
+          "hmac_mismatches_dropped": 400,
+          "window_ms": [
+            1783523064260,
+            1783523066874
+          ]
+        },
+        "blocked": true
+      },
+      "partial_mutation": {
+        "variant": "partial_mutation",
+        "mutation_rate": 0.1,
+        "feed_packets_sent": 800,
+        "attacker_view": {
+          "forwarded_total": 1203,
+          "data_packets_seen": 400,
+          "mutated": 46,
+          "untouched": 354,
+          "relay_errors": 0
+        },
+        "defender_view": {
+          "sidecar_hub_log": "evaluation/results/atk3_sidecar_partial_mutation.log",
+          "hmac_mismatches_dropped": 46,
+          "window_ms": [
+            1783523069652,
+            1783523072310
+          ]
+        },
+        "blocked": true
+      }
+    },
+    "defender_view": {
+      "note": "each mutated packet fails HMAC verification at the sidecar hub; untouched packets pass, so detection is precise"
+    },
+    "success_criterion_met": true
+  },
+  "ATK4_unauth": {
+    "attack": "ATK4_unauth",
+    "attacker_model": "rogue device with a validly signed cert whose CN is not allowlisted",
+    "blocked_by": "F1 (allowlist check on certificate CN)",
+    "params": {
+      "attempts": 100
+    },
+    "variants": {
+      "non_allowlisted": {
+        "common_name": "bci-device-002",
+        "description": "valid testbed-CA cert for a provisioned but non-allowlisted device",
+        "attempts": 100,
+        "connected": 0,
+        "rejected": 100,
+        "tls_error": 0,
+        "error": 0,
+        "connection_success": {
+          "successes": 0,
+          "attempts": 100,
+          "rate": 0.0,
+          "ci95_lower": 0.0,
+          "ci95_upper": 0.037
+        },
+        "blocked": true
+      },
+      "case_mismatch": {
+        "common_name": "BCI-DEVICE-001",
+        "description": "CN differs from an allowlisted id only by letter case",
+        "attempts": 100,
+        "connected": 0,
+        "rejected": 100,
+        "tls_error": 0,
+        "error": 0,
+        "connection_success": {
+          "successes": 0,
+          "attempts": 100,
+          "rate": 0.0,
+          "ci95_lower": 0.0,
+          "ci95_upper": 0.037
+        },
+        "blocked": true
+      },
+      "cn_substring": {
+        "common_name": "bci-device-001-rogue",
+        "description": "CN contains an allowlisted id as a substring",
+        "attempts": 100,
+        "connected": 0,
+        "rejected": 100,
+        "tls_error": 0,
+        "error": 0,
+        "connection_success": {
+          "successes": 0,
+          "attempts": 100,
+          "rate": 0.0,
+          "ci95_lower": 0.0,
+          "ci95_upper": 0.037
+        },
+        "blocked": true
+      }
+    },
+    "defender_view": {
+      "log_path": "gateway_events.log",
+      "window_ms": [
+        1783523072325,
+        1783523073618
+      ],
+      "non_allowlisted": {
+        "common_name": "bci-device-002",
+        "auth_failure_not_in_allowlist": 100,
+        "auth_success": 0
+      },
+      "case_mismatch": {
+        "common_name": "BCI-DEVICE-001",
+        "auth_failure_not_in_allowlist": 100,
+        "auth_success": 0
+      },
+      "cn_substring": {
+        "common_name": "bci-device-001-rogue",
+        "auth_failure_not_in_allowlist": 100,
+        "auth_success": 0
+      }
+    },
+    "success_criterion_met": true
+  },
+  "ATK5_fuzz": {
+    "attack": "ATK5_fuzz",
+    "attacker_model": "authenticated but misbehaving device sending malformed packets",
+    "blocked_by": "input validation (packet-shape check before F2/F3)",
+    "params": {
+      "malformed_count": 14,
+      "valid_count": 5
+    },
+    "attacker_view": {
+      "malformed_sent": 14,
+      "valid_sent": 5,
+      "connection_dropped": false
+    },
+    "defender_view": {
+      "log_path": "gateway_events.log",
+      "packet_rejected": 14,
+      "packet_forwarded": 5,
+      "window_ms": [
+        1783523073634,
+        1783523074741
+      ]
+    },
+    "success_criterion_met": true
+  },
+  "ATK6_abnormal": {
+    "attack": "ATK6_abnormal_device",
+    "attacker_model": "authenticated but misbehaving device: holds a valid cert, floods packets and emits out-of-distribution channel values",
+    "blocked_by": "F4 (packet-rate limiting + behavioural anomaly detection)",
+    "params": {
+      "flood_count": 1500,
+      "baseline_packets": 350,
+      "anomalous_packets": 100,
+      "anomalous_value": 250.0,
+      "device_id": "bci-device-001"
+    },
+    "variants": {
+      "rate_flood": {
+        "description": "authenticated device floods packets above the gateway rate cap",
+        "sent": 1500,
+        "defender": {
+          "rate_limited": 1100,
+          "packet_forwarded": 400,
+          "window_ms": [
+            1783523074758,
+            1783523074908
+          ]
+        },
+        "blocked": true
+      },
+      "abnormal_channels": {
+        "description": "authenticated device sends channel values far outside its learned baseline",
+        "baseline_sent": 350,
+        "anomalous_sent": 100,
+        "anomalous_value": 250.0,
+        "defender": {
+          "anomaly_detected": 100,
+          "window_ms": [
+            1783523077327,
+            1783523077951
+          ]
+        },
+        "note": "F4 anomaly detection is alert-only: the packets are still forwarded but flagged",
+        "blocked": true
+      }
+    },
+    "defender_view": {
+      "log_path": "gateway_events.log",
+      "note": "rate_flood is dropped by the rate limiter (prevention); abnormal_channels is flagged by the behavioural detector (alert-only detection)"
+    },
+    "success_criterion_met": true
+  }
+}

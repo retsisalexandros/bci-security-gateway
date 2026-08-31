@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+node_modules/
+dist/
+build/
+.vite/
+*.key
+*.srl
+gateway_events.log
+.tamper_active

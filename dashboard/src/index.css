@@ -1,0 +1,31 @@
+:root {
+  --bg:        #0a0e12;
+  --panel:     #11161c;
+  --inset:     #0c1116;
+  --line:      #212a32;
+  --line-soft: #171e25;
+  --text:      #d3dbe0;
+  --dim:       #7f8b95;
+  --faint:     #515b64;
+  --accent:    #2fbfa0;
+  --good:      #4fbf8b;
+  --warn:      #d3a24a;
+  --bad:       #d95c53;
+  --mono: ui-monospace, "Cascadia Code", "JetBrains Mono", "SF Mono", Consolas, Menlo, monospace;
+  --sans: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--mono);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}

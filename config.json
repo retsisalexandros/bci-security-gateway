@@ -1,0 +1,39 @@
+{
+  "simulator": {
+    "device_id": "bci-device-001",
+    "sampling_rate": 250,
+    "gateway_host": "127.0.0.1",
+    "gateway_port": 9000,
+    "hub_host": "127.0.0.1",
+    "hub_port": 8001,
+    "cert": "certs/devices/device-001.crt",
+    "key": "certs/devices/device-001.key",
+    "ca_cert": "certs/ca/testbed-ca.crt"
+  },
+  "gateway": {
+    "inbound_port": 9000,
+    "outbound_port": 9001,
+    "ca_cert": "certs/ca/testbed-ca.crt",
+    "server_cert": "certs/gateway/gateway.crt",
+    "server_key": "certs/gateway/gateway.key",
+    "hmac_key": "super-secret-hmac-key-for-prototype",
+    "time_window_seconds": 5,
+    "allowlist": ["bci-device-001"],
+    "max_pps": 400,
+    "anomaly_learn_samples": 300,
+    "anomaly_z": 6.0,
+    "channel_bound": 300.0,
+    "log_path": "gateway_events.log",
+    "metrics_port": 9002
+  },
+  "hub": {
+    "port": 8001,
+    "dashboard_port": 8002,
+    "hmac_key": "super-secret-hmac-key-for-prototype",
+    "gateway_host": "127.0.0.1",
+    "gateway_port": 9001
+  },
+  "dashboard": {
+    "hub_ws": "ws://localhost:8002"
+  }
+}

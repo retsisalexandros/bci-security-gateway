@@ -1,0 +1,13 @@
+2026-07-08 18:04:21,698 [websockets.server] INFO: server listening on 127.0.0.1:9101
+2026-07-08 18:04:21,698 [mitm_proxy] INFO: MitM relay listening on ws://127.0.0.1:9101 (mutation_rate=1.00)
+2026-07-08 18:04:21,700 [mitm_proxy] INFO: Connecting to gateway at ws://127.0.0.1:9001 ...
+2026-07-08 18:04:21,703 [mitm_proxy] INFO: Connected to gateway.
+2026-07-08 18:04:22,131 [websockets.server] INFO: connection rejected (400 Bad Request)
+2026-07-08 18:04:22,132 [websockets.server] INFO: connection closed
+2026-07-08 18:04:22,316 [websockets.server] INFO: connection open
+2026-07-08 18:04:22,316 [mitm_proxy] INFO: Sidecar hub connected.
+{"mitm_counters": {"forwarded_total": 0, "data_packets_seen": 0, "mutated": 0, "untouched": 0, "non_data_forwarded": 303, "relay_errors": 0}}
+{"mitm_counters": {"forwarded_total": 0, "data_packets_seen": 0, "mutated": 0, "untouched": 0, "non_data_forwarded": 303, "relay_errors": 0}}
+{"mitm_counters": {"forwarded_total": 401, "data_packets_seen": 400, "mutated": 400, "untouched": 0, "non_data_forwarded": 304, "relay_errors": 0}}
+{"mitm_counters": {"forwarded_total": 401, "data_packets_seen": 400, "mutated": 400, "untouched": 0, "non_data_forwarded": 304, "relay_errors": 0}}
+{"mitm_counters": {"forwarded_total": 1203, "data_packets_seen": 400, "mutated": 400, "untouched": 0, "non_data_forwarded": 1106, "relay_errors": 0}}

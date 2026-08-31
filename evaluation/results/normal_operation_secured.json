@@ -1,0 +1,13 @@
+{
+  "mode": "secured",
+  "window_ms": [
+    1783523041852,
+    1783523051871
+  ],
+  "legitimate_packets_forwarded": 2404,
+  "false_rejections": 0,
+  "false_rate_limited": 0,
+  "false_anomaly_alerts": 0,
+  "auth_failures": 0,
+  "false_positive_rate": 0.0
+}

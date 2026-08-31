@@ -1,0 +1,24 @@
+2026-05-20 08:30:01,579 [__main__] INFO: Starting gateway...
+2026-05-20 08:30:01,601 [websockets.server] INFO: server listening on 0.0.0.0:9000
+2026-05-20 08:30:01,601 [__main__] INFO: Gateway inbound (device) server on port 9000 (mTLS).
+2026-05-20 08:30:01,602 [websockets.server] INFO: server listening on 0.0.0.0:9001
+2026-05-20 08:30:01,602 [__main__] INFO: Gateway outbound (hub) server on port 9001.
+2026-05-20 08:30:12,384 [websockets.server] INFO: connection open
+2026-05-20 08:30:12,384 [gateway.logger] INFO: auth_failure | bci-device-002 | Not in allowlist
+2026-05-20 08:30:12,385 [websockets.server] INFO: connection closed
+2026-05-20 08:30:37,264 [websockets.server] INFO: connection open
+2026-05-20 08:30:37,264 [gateway.logger] INFO: auth_success | bci-device-001 | 
+2026-05-20 08:30:37,264 [gateway.proxy] INFO: Device bci-device-001 authenticated and connected.
+2026-05-20 08:30:37,265 [websockets.server] INFO: connection closed
+2026-05-20 08:30:37,269 [websockets.server] INFO: connection open
+2026-05-20 08:30:37,269 [gateway.logger] INFO: auth_success | bci-device-001 | 
+2026-05-20 08:30:37,269 [gateway.proxy] INFO: Device bci-device-001 authenticated and connected.
+2026-05-20 08:30:37,269 [websockets.server] INFO: connection closed
+2026-05-20 08:30:37,270 [websockets.server] INFO: connection open
+2026-05-20 08:30:37,270 [gateway.proxy] INFO: Hub client connected (1 total).
+2026-05-20 08:30:37,271 [gateway.proxy] INFO: Hub client disconnected (0 total).
+2026-05-20 08:30:37,271 [websockets.server] INFO: connection closed
+2026-05-20 08:30:39,312 [websockets.server] INFO: connection open
+2026-05-20 08:30:39,312 [gateway.proxy] INFO: Hub client connected (1 total).
+2026-05-20 08:30:39,312 [gateway.proxy] INFO: Hub client disconnected (0 total).
+2026-05-20 08:30:39,312 [websockets.server] INFO: connection closed
