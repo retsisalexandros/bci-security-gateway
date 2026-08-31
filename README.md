@@ -1,5 +1,7 @@
 # BCI Security Gateway
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22208030.svg)](https://doi.org/10.5281/zenodo.22208030)
+
 Here you will find the artifact for my MSc Cybersecurity thesis at UCD. It is a prototype security gateway which sits inline between a simulated brain-computer interface device and the hub and dashboard downstream that consume its data. Full detail on the design and the evaluation is in the thesis document itself, this README covers what the code does and how to run it.
 
 The gateway enforces four controls along with an input validation layer:
