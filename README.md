@@ -140,6 +140,14 @@ The overhead benchmark can also be run by itself:
 python evaluation/measure_overhead.py
 ```
 
+The two F4 studies, the parameter sensitivity sweep and the extended false-positive check, are run separately since they exercise the detector directly rather than the live pipeline:
+
+```
+python evaluation/run_f4_studies.py
+```
+
+This writes `sensitivity_atk6.json` and `false_positive_extended.json`. The recorded EEG source is skipped if the dataset is not present locally, since it is a third party file rather than part of this repository. The detection rates are stable between runs, while the false alarm rates vary a little, as the synthetic signal carries unseeded noise.
+
 The output is JSON holding both the attacker side counters, meaning whatever the attacking client actually observed, and the defender side counts read out of `gateway_events.log`, meaning what the gateway recorded while the attack was running. Comparing the baseline results against the secured ones is what isolates the gateway as the cause of the difference.
 
 ## Results
